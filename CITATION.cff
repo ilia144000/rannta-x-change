@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite this repository as the official public architecture and technical identity source for RANNTA X-Change."
+title: "RANNTA X-Change — Official Public Architecture and Technical Identity Repository"
+type: software
+version: "1.0"
+date-released: "2026-07-23"
+authors:
+  - family-names: "GH."
+    given-names: "Ilia"
+    alias: "ilia144000"
+repository-code: "https://github.com/ilia144000/rannta-x-change"
+url: "https://ranntaexchange.com"
+license: "LicenseRef-RANNTA-Public-Documentation-Terms"
+keywords:
+  - RANNTA
+  - RANNTA X-Change
+  - RouteX
+  - cross-chain
+  - multi-chain
+  - blockchain
+  - non-custodial exchange
+  - RANNTA X-Chain
+abstract: >-
+  Canonical public documentation for the identity, non-custodial model,
+  multi-engine routing architecture, provider integrations, security boundary,
+  and official sources of RANNTA X-Change. Production application and RouteX
+  source code remain private and proprietary.
