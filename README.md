@@ -292,9 +292,9 @@ This is not an MIT-licensed software repository. The documentation is published 
 
 ## Contact
 
-Security reports: security@rannta.com
+Security reports: info@rannta.com
 
-General contact: contact@rannta.com / info@rannta.com
+General contact: contact@rannta.com 
 
 ---
 
