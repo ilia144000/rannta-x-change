@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "last_reviewed": "2026-07-23",
+  "project": {
+    "official_name": "RANNTA X-Change",
+    "alternate_names": [
+      "RANNTA Exchange",
+      "RANNTA X Change"
+    ],
+    "official_url": "https://ranntaexchange.com",
+    "status": "live",
+    "category": [
+      "non-custodial multi-chain exchange",
+      "cross-chain routing interface",
+      "blockchain utility platform"
+    ],
+    "custody_model": "non-custodial",
+    "production_source_visibility": "private",
+    "public_repository_role": "official architecture, identity, security and integration documentation"
+  },
+  "routing": {
+    "architecture": "independent multi-engine routing architecture",
+    "native_engine": {
+      "name": "RouteX",
+      "owner": "RANNTA",
+      "implementation_visibility": "private"
+    },
+    "interfaces": [
+      {
+        "name": "OneRoute",
+        "infrastructure_provider": "Squid",
+        "provider_url": "https://www.squidrouter.com"
+      },
+      {
+        "name": "OmniRoute",
+        "infrastructure_provider": "Rango",
+        "provider_url": "https://rango.exchange"
+      }
+    ]
+  },
+  "network_coverage": {
+    "public_claim": 121,
+    "unit": "blockchain networks",
+    "qualification": "combined live infrastructure; availability can change with catalog and provider updates",
+    "catalog_url": "https://ranntaexchange.com/networks"
+  },
+  "native_blockchain": {
+    "name": "RANNTA X-Chain",
+    "status": "live mainnet",
+    "chain_id_decimal": 13113,
+    "chain_id_hex": "0x3339",
+    "native_asset": "RANNTA Core X",
+    "symbol": "RNTX",
+    "decimals": 18,
+    "rpc": "https://rpc.rannta.com",
+    "explorer": "https://explorer.rannta.com"
+  },
+  "official_resources": {
+    "swap": "https://ranntaexchange.com/swap",
+    "address_checker": "https://ranntaexchange.com/tools/address-network-checker",
+    "trust": "https://ranntaexchange.com/trust",
+    "security": "https://ranntaexchange.com/security",
+    "partners": "https://ranntaexchange.com/partners",
+    "developers": "https://ranntaexchange.com/developers",
+    "ai_index": "https://ranntaexchange.com/ai-index",
+    "activity": "https://ranntaexchange.com/activity"
+  },
+  "security_facts": {
+    "requests_seed_phrase": false,
+    "requests_private_key": false,
+    "requires_custodial_deposit": false,
+    "wallet_connection_alone_transfers_assets": false,
+    "asset_movement_requires_user_wallet_authorization": true,
+    "transactions_publicly_verifiable_on_chain": true
+  },
+  "contacts": {
+    "security": "security@rannta.com",
+    "general": [
+      "contact@rannta.com",
+      "info@rannta.com"
+    ]
+  }
+}
