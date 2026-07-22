@@ -174,8 +174,13 @@ The absence of production source code in this repository does not mean that RANN
 |---|---|
 | RANNTA X-Change | https://ranntaexchange.com |
 | Swap | https://ranntaexchange.com/swap |
+| Trade | https://ranntaexchange.com/trade |
+| Activity | https://ranntaexchange.com/activity |
+| Ecosystem | https://ranntaexchange.com/ecosystem |
 | Networks | https://ranntaexchange.com/networks |
-| Address Checker | https://ranntaexchange.com/tools/address-network-checker |
+| Address Network Checker | https://ranntaexchange.com/tools/address-network-checker |
+| Guides | https://ranntaexchange.com/guides |
+| Encyclopedia | https://ranntaexchange.com/encyclopedia |
 | Trust | https://ranntaexchange.com/trust |
 | Security | https://ranntaexchange.com/security |
 | Partners | https://ranntaexchange.com/partners |
