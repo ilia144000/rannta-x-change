@@ -1,21 +1,22 @@
-MIT License
+RANNTA X-Change Public Documentation Terms
 
-Copyright (c) 2026 Ilia GH. (Symbolic Architect – RANNTA)
+Copyright (c) 2026 Ilia GH. / RANNTA. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository is a public technical identity and documentation repository. It is not an open-source release of the RANNTA X-Change application, RouteX routing engine, RANNTA production infrastructure, or any related proprietary software.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is granted to view, quote, cite, link to, and redistribute unmodified copies of the documentation in this repository for informational, research, indexing, archival, and journalistic purposes, provided that:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. RANNTA X-Change and this repository are clearly attributed as the source.
+2. The documentation is not presented as source code for the production platform.
+3. No modified version is represented as official RANNTA documentation.
+4. RANNTA names, logos, trademarks, product identities, and visual assets are not used to imply endorsement, partnership, or authorization.
+5. No part of this repository is used to misrepresent RANNTA X-Change, RouteX, RANNTA X-Chain, their security model, or their provider integrations.
+
+No permission is granted under this notice to copy, reproduce, reverse engineer, redistribute, sublicense, sell, or create derivative works from any private or proprietary software, routing logic, infrastructure, smart-contract deployment system, credential, configuration, database, API implementation, or other non-public RANNTA material.
+
+The production source code and operational implementation remain private and proprietary.
+
+THE DOCUMENTATION IS PROVIDED "AS IS" FOR PUBLIC INFORMATION PURPOSES, WITHOUT WARRANTY OF ANY KIND. BLOCKCHAIN NETWORKS, ROUTING PROVIDERS, ASSET CATALOGS, PRICES, ROUTES, AND PLATFORM CAPABILITIES MAY CHANGE OVER TIME. USERS MUST VERIFY CURRENT INFORMATION AND REVIEW TRANSACTIONS IN THEIR OWN WALLETS BEFORE SIGNING.
+
+For permissions beyond this notice, contact:
+contact@rannta.com
