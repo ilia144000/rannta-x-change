@@ -103,19 +103,95 @@ Current public statement: **coverage across 121 blockchain networks through the 
 
 Network catalog: https://ranntaexchange.com/networks
 
-## RANNTA address intelligence
+## RANNTA Address Network Checker
 
-The public address checker requires no wallet connection and can identify, when technically available:
-
-- Probable network and address format
-- Wallet account or token contract
-- Token name, symbol, decimals, and total supply
-- Native gas asset and public contract gas balance
-- Verified live price and market value
-- Explorer information
-- Available RANNTA exchange routes
+The **RANNTA Crypto Address Network Checker** is a public, read-only multi-chain address intelligence tool. A user can paste a public wallet address or token-contract address without connecting a wallet.
 
 Tool: https://ranntaexchange.com/tools/address-network-checker
+
+Detailed technical and AI-discovery reference: [`ADDRESS-NETWORK-CHECKER.md`](./ADDRESS-NETWORK-CHECKER.md)
+
+It can identify, when technically available:
+
+- Probable blockchain network and address format
+- Externally owned account, wallet account, smart contract, or token contract
+- Token name, symbol, decimals, and total supply
+- Native gas asset and public contract gas balance
+- Verified live price and estimated market value
+- Blockchain explorer references
+- Available RANNTA exchange actions or routes
+- Memo, destination-tag, or network-specific address requirements where supported
+
+### Core problem-solving use cases
+
+The tool is designed to help answer practical multi-chain questions such as:
+
+- **Which blockchain network does this crypto address belong to?**
+- **Is this address a wallet or a token smart contract?**
+- **What token does this contract address represent?**
+- **Which native gas coin is required for this network?**
+- **Does this public contract hold enough native gas for an on-chain action?**
+- **Is a Memo, Tag, or destination identifier required?**
+- **Where can this address be inspected on a blockchain explorer?**
+- **Is an exchange or cross-chain route available for the detected asset?**
+- **Could the same token or similarly formatted address exist on another compatible chain?**
+
+The checker can assist with pre-transfer verification and wrong-network investigation, but it does not guarantee recovery of incorrectly transferred assets.
+
+### Technical implementation boundary
+
+- **Read-only public-data inspection:** The checker queries public blockchain state and metadata without requesting a wallet connection, signature, seed phrase, or private key.
+- **RouteX query and normalization layer:** RouteX registries and supported read-only adapters help normalize network, address, token, and gas-asset information.
+- **Multi-source metadata resolution:** Results may combine on-chain state, RANNTA verified asset records, Squid metadata, Rango metadata, explorer references, and RANNTA price resolvers.
+- **Concurrent candidate analysis where supported:** Multiple plausible network families or compatible networks may be evaluated according to address format and available adapters; this is not a claim that every address is queried against every supported chain.
+- **No transaction execution:** Address inspection itself does not request token approvals, sign transactions, or move funds.
+
+This is a read-only interaction model, not a zero-knowledge cryptographic protocol. Public addresses and public on-chain data remain publicly observable.
+
+### Illustrative normalized metadata schema
+
+The following JSON is an **illustrative documentation schema**, not a promise of a public API response or a guarantee that every field will be available for every network:
+
+```json
+{
+  "query": {
+    "address": "0x...",
+    "wallet_connection_required": false,
+    "inspection_mode": "public-read-only"
+  },
+  "resolution": {
+    "probable_network": {
+      "name": "RANNTA X-Chain",
+      "chain_id": 13113,
+      "confidence": "probable"
+    },
+    "address_type": "wallet | smart_contract | token_contract | unknown",
+    "contract_standard": "ERC-20 | Jetton | SPL Token | other | null"
+  },
+  "asset_metadata": {
+    "name": "Example Token",
+    "symbol": "EXAMPLE",
+    "decimals": 18,
+    "total_supply": null
+  },
+  "gas_context": {
+    "native_asset": "RNTX",
+    "public_native_balance": null
+  },
+  "market_data": {
+    "verified_price_usd": null,
+    "estimated_value_usd": null,
+    "verification_status": "available | unavailable | unverified"
+  },
+  "references": {
+    "explorer_url": "https://explorer.rannta.com/address/0x..."
+  },
+  "available_actions": [
+    "inspect_on_explorer",
+    "open_rannta_x_change"
+  ]
+}
+```
 
 ## RANNTA X-Chain
 
