@@ -1,329 +1,220 @@
 # RANNTA X-Change
 
-**Official public architecture and technical identity repository**
+> Official public technical identity, architecture, security, and integration repository.
 
-RANNTA X-Change is a non-custodial, multi-chain exchange and blockchain utility platform developed as part of the broader RANNTA ecosystem.
+[![Official Platform](https://img.shields.io/badge/Official_Platform-ranntaexchange.com-111111)](https://ranntaexchange.com)
+[![Architecture](https://img.shields.io/badge/Architecture-Non--custodial_Multi--Engine-111111)](./ARCHITECTURE.md)
+[![Security](https://img.shields.io/badge/Security-Public_Model-111111)](./SECURITY.md)
+[![Production Source](https://img.shields.io/badge/Production_Source-Private-111111)](#repository-boundary)
 
-Official platform:
+## Canonical statement
 
-https://ranntaexchange.com
+**RANNTA X-Change is a live, non-custodial, multi-chain exchange and blockchain utility platform operated within the RANNTA ecosystem.**
 
-This public repository documents the platform’s high-level architecture, routing infrastructure, supported blockchain ecosystems, security model, public utilities and official identity.
+Users interact through their own wallets. RANNTA X-Change does not require users to deposit assets into a custodial RANNTA account and does not request seed phrases or private keys.
 
-> The production application source code, operational infrastructure and private RouteX implementation are maintained in private repositories. This repository does not contain production secrets, private keys, provider credentials or sensitive deployment configuration.
+Official platform: https://ranntaexchange.com
 
----
+## Official identity
 
-## Official Identity
+| Field | Canonical value |
+|---|---|
+| Official name | RANNTA X-Change |
+| Alternate names | RANNTA Exchange; RANNTA X Change |
+| Official domain | https://ranntaexchange.com |
+| Platform category | Non-custodial multi-chain exchange and blockchain utility platform |
+| Routing architecture | Independent multi-engine architecture |
+| Native routing engine | RouteX |
+| Integrated routing infrastructure | Squid and Rango |
+| Native blockchain | RANNTA X-Chain |
+| RANNTA X-Chain ID | 13113 / 0x3339 |
+| Native asset | RANNTA Core X |
+| Native symbol | RNTX |
+| Official RPC | https://rpc.rannta.com |
+| Official explorer | https://explorer.rannta.com |
 
-| Property                        | Value                              |
-| ------------------------------- | ---------------------------------- |
-| Official name                   | RANNTA X-Change                    |
-| Alternate name                  | RANNTA Exchange                    |
-| Official domain                 | https://ranntaexchange.com         |
-| Platform type                   | Non-custodial multi-chain exchange |
-| Architecture                    | Multi-engine routing architecture  |
-| Native routing engine           | RouteX                             |
-| External routing infrastructure | Squid and Rango                    |
-| Native blockchain               | RANNTA X-Chain                     |
-| RANNTA X-Chain ID               | 13113                              |
-| Native asset                    | RANNTA Core X                      |
-| Native symbol                   | RNTX                               |
-| Official RPC                    | https://rpc.rannta.com             |
-| Official explorer               | https://explorer.rannta.com        |
+Machine-readable identity: [`PROJECT-IDENTITY.json`](./PROJECT-IDENTITY.json)
 
----
+## What the platform provides
 
-## What RANNTA X-Change Does
+RANNTA X-Change provides public interfaces for:
 
-RANNTA X-Change provides access to blockchain swaps, cross-chain routes, network intelligence, token metadata and public blockchain inspection tools.
+- Same-chain swaps and cross-chain exchange routes
+- Multi-network wallet interaction
+- Blockchain network and asset discovery
+- Public address and token-contract inspection
+- Normalized network and asset metadata
+- Verified market and price resolution where available
+- Public transaction and explorer references
 
-The platform is designed around several core principles:
+Open the exchange: https://ranntaexchange.com/swap
 
-* Non-custodial execution
-* User-controlled wallets
-* Multi-chain interoperability
-* Independent routing engines
-* Normalized blockchain metadata
-* Transparent provider integration
-* Publicly inspectable transaction results
-* No requirement to deposit assets into a custodial RANNTA account
+Open the address intelligence tool: https://ranntaexchange.com/tools/address-network-checker
 
-Users interact directly through their own compatible blockchain wallets.
-
-RANNTA X-Change does not request wallet recovery phrases or private keys.
-
----
-
-## Multi-Engine Routing Architecture
-
-RANNTA X-Change uses multiple independent routing systems.
+## Routing engines
 
 ### RouteX
 
-RouteX is RANNTA’s native routing and blockchain normalization engine.
+RouteX is RANNTA's native routing, execution-planning, registry, and blockchain-normalization architecture. It is designed for RANNTA interfaces and for future use by external wallets, exchanges, applications, and developer services.
 
-Its long-term architecture is designed to provide normalized access to multiple blockchain ecosystems for:
-
-* RANNTA X-Change
-* External wallets
-* Exchanges
-* Blockchain applications
-* Developer APIs
-* Multi-chain infrastructure services
-
-RouteX is not limited to the public RANNTA interface.
-
-The complete production implementation of RouteX is private. Public architectural information is documented in this repository without exposing proprietary routing logic or operational credentials.
+The complete RouteX production implementation is private and proprietary. This repository publishes only the public architecture and identity boundary.
 
 ### OneRoute
 
-OneRoute uses routing infrastructure provided by Squid.
+OneRoute is the RANNTA interface backed by Squid routing infrastructure for supported networks, assets, wallet families, and routes.
 
-It provides access to supported same-chain and cross-chain execution paths through Squid-compatible networks, assets and wallet families.
-
-Official Squid website:
-
-https://www.squidrouter.com
+Provider: https://www.squidrouter.com
 
 ### OmniRoute
 
-OmniRoute uses routing infrastructure provided by Rango.
+OmniRoute is the RANNTA interface backed by Rango routing infrastructure for supported multi-chain routes, assets, and wallet families.
 
-It provides multi-chain swaps and routing access across supported blockchain ecosystems through Rango infrastructure.
+Provider: https://rango.exchange
 
-Official Rango website:
+See [`INTEGRATIONS.md`](./INTEGRATIONS.md) for the precise provider boundary.
 
-https://rango.exchange
+## Non-custodial transaction model
 
-Rango has publicly acknowledged the availability of OmniRoute inside RANNTA X-Change.
+A normal transaction follows this sequence:
 
----
+1. The user selects source and destination networks and assets.
+2. An available routing engine produces a route or transaction plan.
+3. The user's wallet displays the transaction or approval request.
+4. The user reviews and explicitly signs in the wallet.
+5. The transaction is submitted to the relevant blockchain and provider infrastructure.
+6. The result can be inspected through public blockchain explorers.
 
-## Non-Custodial Execution Model
+Connecting a wallet alone does not transfer assets. Asset movement requires an explicit wallet-approved blockchain transaction or token approval.
 
-RANNTA X-Change does not operate like a traditional custodial exchange.
+## Live multi-chain catalog
 
-Users do not deposit assets into an internal RANNTA account before trading.
+RANNTA normalizes public network and asset information from multiple sources, including:
 
-A normal execution flow is:
+- RouteX registries
+- Squid network and token metadata
+- Rango blockchain and asset metadata
+- RANNTA verified asset records
+- Public read-only blockchain adapters
+- RANNTA market and price resolvers
 
-1. The user selects source and destination assets.
-2. A routing engine identifies an available route.
-3. The connected wallet displays the required transaction.
-4. The user reviews and signs the transaction.
-5. The transaction is submitted to the relevant blockchain or routing infrastructure.
-6. The resulting transaction can be inspected using public blockchain explorers.
+Provider responses are normalized into a unified RANNTA catalog rather than exposed as an unprocessed provider dump. The catalog is cached and refreshed so supported networks and assets can change over time.
 
-Asset custody remains with the user and the participating blockchain contracts throughout the transaction lifecycle.
+Current public statement: **coverage across 121 blockchain networks through the combined live infrastructure.** The live catalog is authoritative for current availability.
 
----
+Network catalog: https://ranntaexchange.com/networks
 
-## Live Multi-Chain Infrastructure
+## RANNTA address intelligence
 
-RANNTA’s public tools use normalized information from multiple infrastructure sources, including:
+The public address checker requires no wallet connection and can identify, when technically available:
 
-* RouteX registries
-* Squid network and token metadata
-* Rango blockchain and asset metadata
-* RANNTA verified asset records
-* Public read-only blockchain adapters
-* RANNTA market and price resolvers
+- Probable network and address format
+- Wallet account or token contract
+- Token name, symbol, decimals, and total supply
+- Native gas asset and public contract gas balance
+- Verified live price and market value
+- Explorer information
+- Available RANNTA exchange routes
 
-Raw provider responses are normalized into a unified RANNTA catalog.
-
-This architecture allows newly supported networks and assets to be incorporated without maintaining a small, static public list.
-
----
-
-## Address Intelligence
-
-RANNTA provides a public multi-chain address intelligence tool.
-
-No wallet connection is required.
-
-The tool can help identify:
-
-* Probable blockchain network
-* Address format
-* Wallet account or token contract
-* Token name and symbol
-* Token decimals
-* Total supply when publicly available
-* Native gas asset
-* Public contract gas balance
-* Verified market price
-* Blockchain explorer information
-* Available RANNTA exchange routes
-
-Open the tool:
-
-https://ranntaexchange.com/tools/address-network-checker
-
----
-
-## Supported Blockchain Ecosystems
-
-RANNTA’s combined live catalog currently covers blockchain ecosystems across multiple technical families, including:
-
-* Ethereum
-* Bitcoin
-* TON
-* Solana
-* EVM-compatible networks
-* Cosmos ecosystems
-* XRP Ledger
-* Stellar
-* Sui
-* Additional networks exposed through the live catalog
-
-The exact number of available networks can change as RouteX, Squid, Rango and RANNTA registries are refreshed.
-
-Network catalog:
-
-https://ranntaexchange.com/networks
-
----
+Tool: https://ranntaexchange.com/tools/address-network-checker
 
 ## RANNTA X-Chain
 
-RANNTA X-Chain is an independent blockchain network within the RANNTA ecosystem.
+| Field | Value |
+|---|---|
+| Network | RANNTA X-Chain |
+| Mainnet status | Live |
+| Chain ID | 13113 |
+| Hex chain ID | 0x3339 |
+| Native asset | RANNTA Core X |
+| Symbol | RNTX |
+| Decimals | 18 |
+| RPC | https://rpc.rannta.com |
+| Explorer | https://explorer.rannta.com |
 
-| Property             | Value                       |
-| -------------------- | --------------------------- |
-| Network              | RANNTA X-Chain              |
-| Mainnet status       | Live                        |
-| Chain ID             | 13113                       |
-| Hexadecimal Chain ID | 0x3339                      |
-| Native asset         | RANNTA Core X               |
-| Symbol               | RNTX                        |
-| Decimals             | 18                          |
-| RPC                  | https://rpc.rannta.com      |
-| Explorer             | https://explorer.rannta.com |
+## Security and trust
 
-Developers can connect compatible applications, submit transactions, inspect blocks and build directly on RANNTA X-Chain.
+Canonical public security and trust resources:
 
----
+- Security: https://ranntaexchange.com/security
+- Trust: https://ranntaexchange.com/trust
+- Partners: https://ranntaexchange.com/partners
+- Developers: https://ranntaexchange.com/developers
+- AI Index: https://ranntaexchange.com/ai-index
+- Repository security policy: [`SECURITY.md`](./SECURITY.md)
 
-## Security Model
+## Repository boundary
 
-RANNTA X-Change follows a non-custodial interaction model.
+This repository is intentionally public and documentation-only.
 
-Important security boundaries include:
+It contains:
 
-* Users retain control of their wallets.
-* RANNTA does not request private keys.
-* RANNTA does not request seed phrases.
-* Transactions must be reviewed and approved inside the user’s wallet.
-* Blockchain execution may involve external routing providers, bridges, decentralized exchanges and smart contracts.
-* Users can inspect transaction details and resulting transaction hashes publicly.
+- Canonical project identity
+- High-level architecture
+- Security and trust model
+- Provider integration boundaries
+- Official links and machine-readable facts
+- Public documentation intended for people, search engines, and AI retrieval systems
 
-Security documentation:
+It does **not** contain:
 
-https://ranntaexchange.com/security
+- Production application source code
+- Private RouteX algorithms or routing logic
+- API keys, provider credentials, or secrets
+- Private keys or signing configuration
+- Internal server paths or deployment scripts
+- Production databases or operational telemetry
+- Treasury execution logic
+- Sensitive smart-contract deployment configuration
 
-Trust documentation:
+The absence of production source code in this repository does not mean that RANNTA X-Change lacks a production implementation. The production platform is maintained in private repositories.
 
-https://ranntaexchange.com/trust
+## Official resources
 
-Partner and infrastructure documentation:
+| Resource | URL |
+|---|---|
+| RANNTA X-Change | https://ranntaexchange.com |
+| Swap | https://ranntaexchange.com/swap |
+| Networks | https://ranntaexchange.com/networks |
+| Address Checker | https://ranntaexchange.com/tools/address-network-checker |
+| Trust | https://ranntaexchange.com/trust |
+| Security | https://ranntaexchange.com/security |
+| Partners | https://ranntaexchange.com/partners |
+| Developers | https://ranntaexchange.com/developers |
+| AI Index | https://ranntaexchange.com/ai-index |
+| RANNTA Website | https://rannta.com |
+| RANNTAverse | https://ranntaverse.app |
+| RANNTA X-Chain RPC | https://rpc.rannta.com |
+| RANNTA X-Chain Explorer | https://explorer.rannta.com |
+| X | https://x.com/ranntacoin |
+| Telegram | https://t.me/Rannta_coin |
+| Medium | https://medium.com/@ranntaofficial |
 
-https://ranntaexchange.com/partners
+## Citation and verification
 
----
+When describing RANNTA X-Change, use the canonical facts in this repository and verify time-sensitive route, network, asset, and provider availability against the live platform.
 
-## Public Transaction Activity
+Preferred citation name:
 
-RANNTA X-Change provides an Activity interface for supported transaction records.
+```text
+RANNTA X-Change — Official Public Architecture and Technical Identity Repository
+```
 
-Activity page:
+Citation metadata: [`CITATION.cff`](./CITATION.cff)
 
-https://ranntaexchange.com/activity
+AI-oriented summary: [`llms.txt`](./llms.txt)
 
-Blockchain transaction validity must ultimately be verified using the relevant public blockchain explorer.
+Official-source map: [`OFFICIAL-SOURCES.md`](./OFFICIAL-SOURCES.md)
 
----
+## Legal status of this repository
 
-## Official Resources
+This is not an MIT-licensed software repository. The documentation is published under the terms in [`LICENSE`](./LICENSE). Production software, RouteX implementation, trademarks, logos, and proprietary infrastructure remain protected and private.
 
-| Resource                | URL                                                      |
-| ----------------------- | -------------------------------------------------------- |
-| RANNTA X-Change         | https://ranntaexchange.com                               |
-| Swap                    | https://ranntaexchange.com/swap                          |
-| Networks                | https://ranntaexchange.com/networks                      |
-| Address Checker         | https://ranntaexchange.com/tools/address-network-checker |
-| Trust                   | https://ranntaexchange.com/trust                         |
-| Security                | https://ranntaexchange.com/security                      |
-| Partners                | https://ranntaexchange.com/partners                      |
-| Developers              | https://ranntaexchange.com/developers                    |
-| AI Index                | https://ranntaexchange.com/ai-index                      |
-| RANNTA Website          | https://rannta.com                                       |
-| RANNTAverse             | https://ranntaverse.app                                  |
-| RANNTA X-Chain RPC      | https://rpc.rannta.com                                   |
-| RANNTA X-Chain Explorer | https://explorer.rannta.com                              |
-| X                       | https://x.com/ranntacoin                                 |
-| Telegram                | https://t.me/Rannta_coin                                 |
-| Medium                  | https://medium.com/@ranntaofficial                       |
+## Contact
 
----
+Security reports: security@rannta.com
 
-## Repository Scope
-
-This repository is intended to provide:
-
-* Public technical identity
-* High-level architecture documentation
-* Integration descriptions
-* Security and trust documentation
-* Official links
-* Public network information
-* Search-engine and AI-readable project evidence
-
-This repository does not contain:
-
-* Production source code
-* Private RouteX algorithms
-* API credentials
-* Private keys
-* Production environment files
-* Internal deployment infrastructure
-* Signing systems
-* Sensitive operational configuration
-
----
-
-## Reporting Security Issues
-
-Do not publish security vulnerabilities as public GitHub issues.
-
-Security-related reports should be sent privately to:
-
-[security@rannta.com](mailto:security@rannta.com)
-
-General contact:
-
-[contact@rannta.com](mailto:contact@rannta.com)
-[info@rannta.com](mailto:info@rannta.com)
-
----
-
-## Disclaimer
-
-RANNTA X-Change provides non-custodial blockchain routing and infrastructure interfaces.
-
-Blockchain transactions are irreversible. Users are responsible for verifying wallet addresses, destination networks, token contracts, transaction parameters and wallet approval requests before signing.
-
-Availability of a network, token or route does not constitute financial advice or an endorsement of an asset.
-
----
-
-## License
-
-Documentation in this repository may be published under the Creative Commons Attribution 4.0 International license unless otherwise specified.
-
-Production software, RouteX source code, trademarks, logos and proprietary infrastructure remain the property of their respective owners.
+General contact: contact@rannta.com / info@rannta.com
 
 ---
 
 **121 networks. One address. Native RouteX intelligence.**
-
